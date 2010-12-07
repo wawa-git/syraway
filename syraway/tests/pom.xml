@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>syraway</artifactId>
+		<groupId>com.assaassociates.syraway</groupId>
+		<version>0.0.1</version>
+	</parent>
+	<groupId>com.assaassociates.syraway</groupId>
+	<artifactId>tests</artifactId>
+	<version>0.0.1</version>
+	<packaging>war</packaging>
+	<name>SYRAWAY tests Webapp</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.assaassociates.syraway</groupId>
+			<artifactId>sw-core</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		 <dependency> 
+		 <groupId>javax</groupId> 
+		 <artifactId>javaee-api</artifactId> 
+		 <version>6.0</version> 
+		 <scope>provided</scope> 
+		 </dependency> 
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>20040616</version>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>JBoss Repo</id>
+			<url>http://repository.jboss.com/maven2</url>
+		</repository>
+		<!-- <repository> -->
+		<!-- <id>java.net</id> -->
+		<!-- <url>http://download.java.net/maven/2</url> -->
+		<!-- </repository> -->
+
+	</repositories>
+
+	<build>
+		<finalName>tests</finalName>
+	</build>
+</project>

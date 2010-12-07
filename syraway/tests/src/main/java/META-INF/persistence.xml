@@ -1,0 +1,25 @@
+<persistence 	xmlns="http://java.sun.com/xml/ns/persistence"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xsi:schemaLocation="http://java.sun.com/xml/ns/persistence">
+
+	<persistence-unit name="syrawayCorePU" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+<!--		<mapping-file>mapping-file.xml</mapping-file>-->
+		<class>com.assaassociates.syraway.core.entities.Collaborator</class>
+<!--		<properties>-->
+<!--			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />-->
+<!--			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/test" />-->
+<!--			<property name="javax.persistence.jdbc.user" value="test" />-->
+<!--			<property name="javax.persistence.jdbc.password" value="test" />-->
+<!--			-->
+<!--			<property name="hibernate.hbm2ddl.auto" value="validate" />-->
+<!--			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>-->
+<!--			<property name="hibernate.show_sql" value="false"/>-->
+<!--			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>-->
+<!--			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/test"/>-->
+<!--			<property name="hibernate.connection.username" value="test"/>-->
+<!--			<property name="hibernate.connection.password" value="test"/>-->
+<!--		</properties>-->
+	</persistence-unit>
+
+</persistence>

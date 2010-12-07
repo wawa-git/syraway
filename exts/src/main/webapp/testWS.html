@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/dojo.xd.js"
+	type="text/javascript"></script>
+</head>
+<body>
+<script type="text/javascript">
+	dojo.addOnload(show());
+
+	function show() {
+		var div = dojo.byId("form");
+		var divBeforeClic = dojo.byId("beforeClic");
+		var btnShow = dojo.byId("btnShow");
+		var btnHide = dojo.byId("btnHide");
+		var input = dojo.byId("text");
+		var btnCheck = dojo.byId("btnCheck");
+		div.style.display = 'block';
+		divBeforeClic.style.display = 'none';
+		btnHide.style.display = 'none';
+		btnShow.style.display = 'none';
+		btnCheck.style.display = 'block';
+		input.disabled = false;
+	}
+	function hide() {
+		var div = dojo.byId("form");
+		var divBeforeClic = dojo.byId("beforeClic");
+		var btnShow = dojo.byId("btnShow");
+		var btnHide = dojo.byId("btnHide");
+		div.style.display = 'none';
+		divBeforeClic.style.display = 'block';
+		btnHide.style.display = 'none';
+		btnShow.style.display = 'block';
+	}
+
+	function check() {
+		var soapRequest = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.cdyne.com/">'
+				+ '<soapenv:Header/><soapenv:Body><ws:VerifyEmail><!--Optional:--><ws:email>waheb.rahmouni@assa-associates.com</ws:email>'
+				+ '<!--Optional:--><ws:LicenseKey>?</ws:LicenseKey></ws:VerifyEmail></soapenv:Body></soapenv:Envelope>';
+		
+		var ws_url ="http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx";
+		console.log("totot");
+		dojo.xhrPost({       
+            url: "http://ws.cdyne.com/emailverify/Emailvernotestemail.asmx",
+            handleAs: "xml",     
+            contentType: "text/xml",
+            //headers:{"SOAPAction": "VerifyEmail"},
+            postContent: soapRequest,
+            //postContent: '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.cdyne.com/">'
+			//	+ '<soapenv:Header/><soapenv:Body><ws:VerifyEmail><!--Optional:--><ws:email>waheb.rahmouni@assa-associates.com</ws:email>'
+			//	+ '<!--Optional:--><ws:LicenseKey>?</ws:LicenseKey></ws:VerifyEmail></soapenv:Body></soapenv:Envelope>' ,
+            load: function(response, ioArgs) { dojo.byId("msg").innerHTML = response; alert(response);alert(ioArgs.xhr.status); return response;},
+            handle: function(response, ioArgs) { alert("handle"); },
+            error: function(response, ioArgs) { console.log("HTTP status code: " + ioArgs.xhr.status);alert("error");return response;}
+             });
+		
+		/*var input = dojo.byId("text");
+		var msgDiv = dojo.byId("msg");
+		if (input.value.trim() == '') {
+			msgDiv.innerHTML = "Set a valid name";
+		} else {
+				msgDiv.innerHTML = "Thank you " + input.value.trim()
+						+ " !<br/> You can hide the Form";
+				var btnHideForm = dojo.byId("btnHide");
+				var btnCheck = dojo.byId("btnCheck");
+				btnHideForm.style.display = 'block';
+				btnCheck.style.display = 'none';
+				input.disabled = true;
+		}*/
+	}
+</script>
+
+<input id="btnShow" value="Show the Form" onclick="show()" type="button" />
+
+<br/>
+
+<div id="beforeClic">click to show the form</div>
+
+<div id="form" style="display: none">Your name (not empty) : <input
+	id="text" maxlength="10" /> <br />
+<input id="btnCheck" type="button" onclick="check()" value="Check name" />
+<br/>
+<div id="msg"></div>
+<br/>
+</div>
+
+<input id="btnHide" value="Hide the Form" onclick="hide()" type="button"
+	style="display: none" />
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+/**
+ * 
+ */
+package com.assaassociates.syraway.persistence.jpa;
+
+import java.util.Set;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.assaassociates.syraway.dao.ICollaboratorDAO;
+import com.assaassociates.syraway.model.Collaborator;
+
+/**
+ * @author waheb
+ *
+ */
+
+
+@Repository(value="CollaboratorDAO")
+public class CollaboratorDAOImpl implements ICollaboratorDAO {
+
+	@PersistenceContext
+	EntityManager oEntityManager;
+	
+//	private EntityManagerFactory emf;
+//	@PersistenceUnit
+//	public void setEntityManagerFactory(EntityManagerFactory emf) {
+//		this.emf = emf;
+//	}
+
+	/* (non-Javadoc)
+	 * @see com.assaassociates.syraway.dao.ICollaborator#getCollaboratorNameById(java.lang.String)
+	 */
+	@Transactional(isolation=Isolation.READ_COMMITTED)
+	public String getCollaboratorNameById(String pId) {
+
+		Collaborator oCollaborator = new Collaborator();
+		oCollaborator.setId(pId);
+		oCollaborator.setFirstName("test");
+		oCollaborator.setLastName("test");
+		
+		if(oEntityManager != null){
+			System.out.println("oEntityManager ...");
+			TypedQuery<Collaborator> oQuery = oEntityManager.createQuery("SELECT c FROM Collaborator c WHERE id = :pId",Collaborator.class);
+			oQuery.setParameter("pId", pId);
+			
+			Collaborator oResult = oQuery.getSingleResult();
+			if(oResult != null){
+				return oResult.getFirstName() + " " + oResult.getLastName();
+			}
+		}
+			return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.assaassociates.syraway.dao.ICollaborator#getCollaboratorsByName(java.lang.String)
+	 */
+	@Transactional(isolation=Isolation.READ_COMMITTED)
+	public Set<Collaborator> getCollaboratorsByName(String pName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.assaassociates.syraway.dao.ICollaborator#getCollaboratorById(java.lang.String)
+	 */
+	@Transactional(isolation=Isolation.READ_COMMITTED)
+	public Collaborator getCollaboratorById(String pId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Transactional(isolation=Isolation.DEFAULT)
+	public void addCollaborator(Collaborator pCollaborator) {
+		System.out.println("before");
+		oEntityManager.persist(pCollaborator);
+	}
+
+}

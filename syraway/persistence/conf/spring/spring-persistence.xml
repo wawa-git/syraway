@@ -20,16 +20,20 @@
 	<!--<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"></bean>-->
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
 
-	<context:component-scan base-package="com.assaassociates.syraway.dao.jpa"/>
+	<context:component-scan base-package="com.assaassociates.syraway.persistence.jpa"/>
+	
 	<!--<bean id="testDao" class="com.assaassociates.syraway.dao.jpa.CollaboratorDAOImpl" />-->
 	
-	<bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager"/>
+	<bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager">
+		<property name="allowCustomIsolationLevels" value="true"/>  
+  	</bean>
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 
 	<!--	Datasource can be substituted with jndi conf -->
-    <jee:jndi-lookup id="dataSource" jndi-name="java:/test"/>
-    <jee:jndi-lookup id="entityManagerFactory" jndi-name="java:/syrawayFactory"/>
+    <jee:jndi-lookup id="dataSource" jndi-name="java:test"/>
+    <jee:jndi-lookup id="entityManagerFactory" jndi-name="java:syrawayFactory"/>
+<!--    <jee:jndi-lookup id="transactionManager" jndi-name="java:TransactionManager"/>-->
 	
 	
 	<!--use this conf to get datasource instead of jndi	-->
@@ -43,4 +47,15 @@
 	<!--c			p:password="#{jdbcConfiguration.pass}"-->
 	<!--c	/>-->
 
+
+<!--<bean id="baseTransactionProxy" class="org.springframework.transaction.interceptor.Transa ctionProxyFactoryBean" abstract="true">-->
+<!--<property name="transactionManager" ref="transactionManager"/>-->
+<!--<property name="transactionAttributes">-->
+<!--<props>-->
+<!--<prop key="save*">PROPAGATION_REQUIRED</prop>-->
+<!--<prop key="update*">PROPAGATION_REQUIRED</prop>-->
+<!--<prop key="delete*">PROPAGATION_REQUIRED</prop>-->
+<!--</props>-->
+<!--</property>-->
+<!--</bean>-->
 </beans>

@@ -8,12 +8,12 @@
 <!--		<provider>org.hibernate.ejb.HibernatePersistence</provider>-->
 		<jta-data-source>java:/test</jta-data-source>
 
-		<mapping-file>jpa/persistence-mapping.xml</mapping-file>
-		<!-- <class>com.assaassociates.syraway.model.Collaborator</class> -->
+<!--		<mapping-file>jpa/persistence-mapping.xml</mapping-file>-->
+		 <class>com.assaassociates.syraway.model.Collaborator</class> 
 		<exclude-unlisted-classes />
 
 		<properties>
-			<property name="hibernate.transaction.manager_lookup_class" value="org.hibernate.transaction.JBossTransactionManagerLookup" />
+<!--			<property name="hibernate.transaction.manager_lookup_class" value="org.hibernate.transaction.JBossTransactionManagerLookup" />-->
 			<property name="jboss.entity.manager.jndi.name" value="java:/syraway" />
 			<property name="jboss.entity.manager.factory.jndi.name"	value="java:/syrawayFactory" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />

@@ -6,10 +6,10 @@
     <description>JPA Test</description>
     <package>com.assaassociates.syraway.model</package>
     <entity class="com.assaassociates.syraway.model.Collaborator" name="Collaborator">
-        <table name="COLLABORATOR"/>
+        <table name="COLLABORATEUR"/>
         <attributes>
             <id name="id" >
-                <column name="COLLABORATOR_ID"/>
+                <column name="COLLABORATEUR_ID"/>
                 <generated-value strategy="TABLE"/>
             </id>
             <basic name="firstName">

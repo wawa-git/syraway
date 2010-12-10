@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+						http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+						http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+						http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
+
+	<!-- holding properties for database connectivity /-->
+<!--	<util:properties id="jdbcConfiguration" location="classpath:properties/jdbc.properties"/>-->
+<!--	<util:properties id="jpaConfiguration" location="classpath:properties/jpa.properties"/>-->
+	
+	<!-- enabling annotation driven configuration /-->
+	<context:annotation-config/>
+	
+<!--	<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"></bean>-->
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
+<!--	-->
+	<context:component-scan base-package="com.assaassociates.syraway.dao.jpa"/>
+<!--	<bean id="testDao" class="com.assaassociates.syraway.dao.jpa.CollaboratorDAOImpl" />-->
+	
+	
+	<!-- 
+		TransactionManager can be substituted with jndi conf
+		<jee:jndi-lookup id="transactionManager" jndi-name="TransactionManager"/>
+	 -->
+	<bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager"/>
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+
+<!--	<tx:annotation-driven/>-->
+
+	<!--		<property name="entityManagerFactory" ref="entityManagerFactory" />-->
+	<!--	</bean>-->
+		
+
+	<!--c	Datasource can be substituted with jndi conf -->
+	    <jee:jndi-lookup id="dataSource" jndi-name="java:/test"/>
+	    <jee:jndi-lookup id="entityManagerFactory" jndi-name="java:/syrawayFactory"/>
+	
+<!--c	<bean 	id="dataSource"-->
+<!--c			class="org.springframework.jdbc.datasource.DriverManagerDataSource"-->
+<!--c			p:driverClassName="#{jdbcConfiguration.driverClassName}"-->
+<!--c			p:url="#{jdbcConfiguration.url}"-->
+<!--c			p:username="#{jdbcConfiguration.user}"-->
+<!--c			p:password="#{jdbcConfiguration.pass}"-->
+<!--c	/>-->
+	
+<!--My conf-->
+<!--	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"-->
+<!--		p:dataSource-ref="dataSource"-->
+<!--	>-->
+<!--	c	<property name="persistenceUnitName" value="syraway"/>-->
+<!--	c	<property name="dataSource" ref="dataSource"/>-->
+<!--	c	<property name="PersistenceXmlLocation" value="classpath:jpa/persistence.xml"/>-->
+<!--		<property name="jpaProperties">-->
+<!--	        <props>-->
+<!--	            <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>-->
+<!--	            <prop key="hibernate.hbm2ddl.auto">Validate</prop>-->
+<!--	            <prop key="hibernate.show_sql">true</prop>-->
+<!--	        </props>-->
+<!--    	</property>-->
+<!--	</bean>-->
+<!--END My conf-->
+
+<!--	<bean name="CallaboratorDaoImpl" class="com.assaassociates.syraway.dao.jpa.CollaboratorDAOImpl">-->
+<!--		<property name="EntityManagerFactory" ref="entityManagerFactory"/>-->
+<!--	</bean>-->
+
+<!--	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">-->
+<!--		<property name="datasource" ref="datasource"/>-->
+<!--		<property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>-->
+<!--		<property name="persistenceXmlLocation" value="classpath*:jpa/syw-persistence.xml"/>-->
+<!--		<property name="persistenceUnitName" value="syraway"/>-->
+<!--		<property name="jpaProperties" ref="jpaProperties"/>-->
+<!--	</bean>-->
+	
+<!--	<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">-->
+<!--		<property name="showSql" value="true" />-->
+<!--		<property name="generateDdl" value="false" />-->
+<!--		<property name="database" value="MySQL" />-->
+<!--	</bean>-->
+<!--	<util:properties id="jpaProperties">-->
+<!--		<prop key="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</prop>-->
+<!--		<prop key="hibernate.cache.use_second_level_cache">false</prop>-->
+<!--		<prop key="hibernate.cache.use_query_cache">false</prop>-->
+<!--	</util:properties>-->
+
+</beans>

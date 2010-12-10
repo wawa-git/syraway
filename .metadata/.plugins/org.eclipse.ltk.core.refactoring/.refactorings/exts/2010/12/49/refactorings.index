@@ -1,0 +1,3 @@
+1291883717001	Rename resource 'spring-persistence.xml'
+1291945035231	Extract method 'listWiredBeans'
+1291945091507	Rename local variable 'oTest'

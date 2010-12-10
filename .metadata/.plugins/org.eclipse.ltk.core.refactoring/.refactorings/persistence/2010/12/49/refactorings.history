@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;persistence/conf/spring/spring-syw-persistence.xml&apos; to &apos;spring-persistence.xml&apos;" description="Rename resource &apos;spring-syw-persistence.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="conf/spring/spring-syw-persistence.xml" name="spring-persistence.xml" stamp="1291882495439" updateReferences="true"/>
+</session>

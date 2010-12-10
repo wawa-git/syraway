@@ -33,8 +33,6 @@
 	<!--	Datasource can be substituted with jndi conf -->
     <jee:jndi-lookup id="dataSource" jndi-name="java:test"/>
     <jee:jndi-lookup id="entityManagerFactory" jndi-name="java:syrawayFactory"/>
-<!--    <jee:jndi-lookup id="transactionManager" jndi-name="java:TransactionManager"/>-->
-	
 	
 	<!--use this conf to get datasource instead of jndi	-->
 	<!-- holding properties for database connectivity /-->
@@ -47,15 +45,4 @@
 	<!--c			p:password="#{jdbcConfiguration.pass}"-->
 	<!--c	/>-->
 
-
-<!--<bean id="baseTransactionProxy" class="org.springframework.transaction.interceptor.Transa ctionProxyFactoryBean" abstract="true">-->
-<!--<property name="transactionManager" ref="transactionManager"/>-->
-<!--<property name="transactionAttributes">-->
-<!--<props>-->
-<!--<prop key="save*">PROPAGATION_REQUIRED</prop>-->
-<!--<prop key="update*">PROPAGATION_REQUIRED</prop>-->
-<!--<prop key="delete*">PROPAGATION_REQUIRED</prop>-->
-<!--</props>-->
-<!--</property>-->
-<!--</bean>-->
 </beans>

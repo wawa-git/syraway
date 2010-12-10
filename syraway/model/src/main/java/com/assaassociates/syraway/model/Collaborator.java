@@ -6,25 +6,30 @@ package com.assaassociates.syraway.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 /**
  * @author waheb
  *
  */
-//@Entity
-//@Table(name = "COLLABORATOR")
+@Entity
+@Table(name = "COLLABORATOR")
 public class Collaborator implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -6518103669032643479L;
-//	@Id
-//	@Column(name="COLLABORATOR_ID")
+	@Id
+	@Column(name="COLLABORATOR_ID")
 	private String id;
-//	@Column(name="FIRST_NAME")
+	@Column(name="FIRST_NAME")
 	private String firstName; 
-//	@Column(name="LAST_NAME")
+	@Column(name="LAST_NAME")
 	private String lastName;
 	
 	public String getId() {

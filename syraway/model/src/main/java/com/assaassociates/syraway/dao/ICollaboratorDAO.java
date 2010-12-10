@@ -16,5 +16,6 @@ public interface ICollaboratorDAO {
 	public String getCollaboratorNameById(String pId);
 	public Set<Collaborator> getCollaboratorsByName(String pName);
 	public Collaborator getCollaboratorById(String pId);
+	public void addCollaborator(Collaborator pCollaborator);
 	
 }

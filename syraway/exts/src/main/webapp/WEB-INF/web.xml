@@ -15,4 +15,19 @@
 			org.springframework.web.context.ContextLoaderListener
 	  	</listener-class>
 	</listener>
+	
+	<servlet>
+		<servlet-name>TestServlet</servlet-name>
+		<servlet-class>com.assaassociates.syraway.proto.TestServlet</servlet-class>
+		<init-param>
+			<param-name>sleep-time-in-seconds</param-name>
+			<param-value>10</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>TestServlet</servlet-name>
+		<url-pattern>/Syraway.exts</url-pattern>
+	</servlet-mapping>
 </web-app>

@@ -1,0 +1,82 @@
+package com.assaassociates.syraway.exts.mbeans;
+
+import java.util.Date;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.jsf.FacesContextUtils;
+import com.assaassociates.syraway.dao.ICollaboratorDAO;
+import com.assaassociates.syraway.model.Collaborator;
+
+@ManagedBean(name="collaborator")
+public class CollaboratorServiceImpl implements ICollaboratorService {
+
+private static final long serialVersionUID = 6726658729223350876L;
+	
+
+	private ICollaboratorDAO oCollaboratorDAO;
+
+	private Collaborator oCollaborator;
+	
+	private String strFirstName="First Name";
+	private String strLastName="Last Name";
+	
+	public CollaboratorServiceImpl(){
+		super(); 
+		oCollaborator = new Collaborator();
+		ApplicationContext appContext = FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
+		this.oCollaboratorDAO = appContext.getBean("CollaboratorDAO", ICollaboratorDAO.class);
+	}
+	
+	public ICollaboratorDAO getCollaboratorDAO() {
+		return oCollaboratorDAO;
+	}
+	
+	public void setCollaboratorDAO(ICollaboratorDAO collaboratorDao) {
+		this.oCollaboratorDAO = collaboratorDao;
+	}
+
+	public String getFirstName() {
+		return strFirstName;
+	}
+
+	public void setFirstName(String pFirstName) {
+		this.strFirstName = pFirstName;
+	}
+
+	public String getLastName() {
+		return strLastName;
+	}
+
+	public void setLastName(String pLastName) {
+		this.strLastName = pLastName;
+	}
+	
+	public Collaborator getCollaborator() {
+		return oCollaborator;
+	}
+
+	public void setCollaborator(Collaborator pCollaborator) {
+		this.oCollaborator = pCollaborator;
+	}
+
+	public void addCollaborator(){
+		Collaborator oCollaborator = new Collaborator();
+		final String strTmp = ("User" + (new Date()).getTime());
+		oCollaborator.setId(strTmp);
+		oCollaborator.setFirstName(this.strFirstName);
+		oCollaborator.setLastName(this.strLastName);
+		
+		if(this.oCollaboratorDAO != null)
+			this.oCollaboratorDAO.addCollaborator(oCollaborator);
+	}
+	
+	public void addoCollaborator(){
+		if(this.oCollaboratorDAO != null)
+			this.oCollaboratorDAO.addCollaborator(oCollaborator);
+	}
+	
+	
+	
+}

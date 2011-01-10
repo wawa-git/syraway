@@ -3,6 +3,7 @@
  */
 package com.assaassociates.syraway.dao;
 
+import java.util.List;
 import java.util.Set;
 
 import com.assaassociates.syraway.model.Collaborator;
@@ -17,5 +18,6 @@ public interface ICollaboratorDAO {
 	public Set<Collaborator> getCollaboratorsByName(String pName);
 	public Collaborator getCollaboratorById(String pId);
 	public void addCollaborator(Collaborator pCollaborator);
+	public List<Collaborator> getAllCollaborators();
 	
 }

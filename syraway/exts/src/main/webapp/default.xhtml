@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:corejsf="http://corejsf.com"
+	xmlns:util="http://java.sun.com/jsf/composite/util">
+	
+	<h:head>
+	
+	</h:head>
+	
+	<h:body>
+		<h1>JSF 2.0 + Spring Example</h1>
+		<h:panelGrid id="panel" columns="1" border="0">
+			<h:outputLink value="addBusinessUnit.xhtml" title="Add Business Unit">
+				<h:outputText value="Add Business Unit" />
+			</h:outputLink>
+			<h:outputLink value="addEmployee.xhtml" title="Add Employee">
+				<h:outputText value="Add Employee" />
+			</h:outputLink>
+			<h:outputLink value="addDepartment.xhtml" title="Add Department">
+				<h:outputText value="Add Department" />
+			</h:outputLink>
+		</h:panelGrid>
+		<h:form id="testAjax">
+			<h:outputText value="test : " />
+			<h:commandButton value="list all collaborators">
+				<f:ajax render="message" listener="#{businessUnit.listCollaboratorsListener}" />
+			</h:commandButton>
+			<h:dataTable id="message" border="1" value="#{businessUnit.collaboratorList}" var="col">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Collaborators_ID" />
+					</f:facet>
+					<h:outputText value="#{col.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="FIRST_NAME" />
+					</f:facet>
+					<h:outputText value="#{col.firstName}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="LAST_NAME" />
+					</f:facet>
+					<h:outputText value="#{col.lastName}" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</h:body>
+</html>

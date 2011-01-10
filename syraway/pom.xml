@@ -24,8 +24,11 @@
 		</dependency>
 	</dependencies>
 	<modules>
+		<module>logging</module>
+		<module>controller</module>
 		<module>model</module>
 		<module>persistence</module>
 		<module>exts</module>
+		<module>security</module>
 	</modules>
 </project>

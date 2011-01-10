@@ -6,10 +6,24 @@
 
 	<persistence-unit name="syraway" transaction-type="JTA">
 <!--		<provider>org.hibernate.ejb.HibernatePersistence</provider>-->
-		<jta-data-source>java:/test</jta-data-source>
+		<jta-data-source>java:/SyrawayDB</jta-data-source>
 
 <!--		<mapping-file>jpa/persistence-mapping.xml</mapping-file>-->
-		 <class>com.assaassociates.syraway.model.Collaborator</class> 
+<!--		<class>com.assaassociates.syraway.model.Collaborator</class>-->
+		<class>com.assaassociates.syraway.model.BusinessUnit</class>
+		<class>com.assaassociates.syraway.model.BusinessUnitEx</class>
+		<class>com.assaassociates.syraway.model.BusinessUnitPc</class>
+		<class>com.assaassociates.syraway.model.Currency</class>
+		<class>com.assaassociates.syraway.model.Department</class>
+		<class>com.assaassociates.syraway.model.Oprid</class>
+		<class>com.assaassociates.syraway.model.Project</class>
+		<class>com.assaassociates.syraway.model.Setid</class>
+		<class>com.assaassociates.syraway.model.Team</class>
+		<class>com.assaassociates.syraway.model.Time</class>
+		<class>com.assaassociates.syraway.model.Employee</class>
+		<class>com.assaassociates.syraway.model.Role</class>
+		<class>com.assaassociates.syraway.model.Task</class>
+		<class>com.assaassociates.syraway.model.UserRole</class>
 		<exclude-unlisted-classes />
 
 		<properties>

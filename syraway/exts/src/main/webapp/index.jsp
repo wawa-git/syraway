@@ -1,5 +1,9 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html>
+<head>
+<title>RichFaces test</title>
+</head>
 <body>
-<h2>Hello World!</h2>
+test
 </body>
 </html>

@@ -3,6 +3,8 @@
  */
 package com.assaassociates.syraway.persistence.jpa;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
@@ -81,6 +83,14 @@ public class CollaboratorDAOImpl implements ICollaboratorDAO {
 	public void addCollaborator(Collaborator pCollaborator) {
 		System.out.println("before");
 		oEntityManager.persist(pCollaborator);
+	}
+
+	public List<Collaborator> getAllCollaborators() {
+		if(oEntityManager != null){
+			TypedQuery<Collaborator> oQuery = oEntityManager.createQuery("SELECT c FROM Collaborator c",Collaborator.class);
+			return oQuery.getResultList();
+		}
+		return new ArrayList<Collaborator>();
 	}
 
 }

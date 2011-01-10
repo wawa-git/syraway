@@ -6,18 +6,70 @@
     <description>JPA Test</description>
     <package>com.assaassociates.syraway.model</package>
     <entity class="com.assaassociates.syraway.model.Collaborator" name="Collaborator">
-        <table name="COLLABORATEUR"/>
+        <table name="SW_EMPLOYEES"/>
         <attributes>
-            <id name="id" >
-                <column name="COLLABORATEUR_ID"/>
+            <id name="empl_id" >
+                <column name="EMPLID"/>
                 <generated-value strategy="TABLE"/>
             </id>
-            <basic name="firstName">
-                <column name="FIRST_NAME" length="100"/>
+            <basic name="bu_ex_id">
+                <column name="BU_EX_ID"/>
             </basic>
-            <basic name="lastName">
-                <column name="LAST_NAME" length="100"/>
+            <basic name="oprId">
+                <column name="OPRID"/>
+            </basic>
+            <basic name="name">
+                <column name="NAME" length="100"/>
+            </basic>
+            <basic name="surname">
+                <column name="SURNAME" length="100"/>
+            </basic>
+            <basic name="entryDate">
+                <column name="ENTRY_DT"/>
+            </basic>
+            <basic name="exitDate">
+                <column name="EXIT_DT"/>
+            </basic>
+            <basic name="active">
+                <column name="ACTIVE"/>
+            </basic>
+            <basic name="adress1">
+                <column name="ADDRESS1"/>
+            </basic>
+            <basic name="adress2">
+                <column name="ADDRESS2"/>
+            </basic>
+            <basic name="cityCD">
+                <column name="CITY_CD"/>
+            </basic>
+            <basic name="city">
+                <column name="CITY"/>
+            </basic>
+            <basic name="country">
+                <column name="COUNTRY"/>
+            </basic>
+            <basic name="departmentId">
+                <column name="DEPTID"/>
+            </basic>
+            <basic name="phoneNumber">
+                <column name="PHONENUMBER"/>
+            </basic>
+            <basic name="email">
+                <column name="EMAIL"/>
+            </basic>
+            <basic name="birthdate">
+                <column name="BIRTHDATE"/>
+            </basic>
+        	<basic name="rate">
+                <column name="RATE"/>
+            </basic>
+            <basic name="costrate">
+                <column name="COSTRATE"/>
+            </basic>
+            <basic name="manager">
+                <column name="MANAGER"/>
             </basic>
         </attributes>
+        
     </entity>
 </entity-mappings>

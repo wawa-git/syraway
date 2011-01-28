@@ -25,6 +25,17 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>com.assaasoociates.syraway</groupId>
+			<artifactId>controller</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring-security.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
 			<version>${spring-security.version}</version>
@@ -63,7 +74,7 @@
 		</repository>
 	</repositories>
 	<build>
-		<finalName>exts</finalName>
+		<finalName>security</finalName>
 		<sourceDirectory>.</sourceDirectory>
 		<resources>
 			<resource>

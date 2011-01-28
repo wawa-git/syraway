@@ -37,7 +37,7 @@ public class BusinessUnitDAOImpl implements IBusinessUnitDAO {
 	}
 
 	@Transactional(isolation=Isolation.READ_COMMITTED)
-	public BusinessUnit getBusinessUnitById(int pId) {
+	public BusinessUnit getBusinessUnitById(Integer pId) {
 		if(oEntityManager != null)
 			return oEntityManager.find(BusinessUnit.class, pId);
 		
@@ -54,7 +54,7 @@ public class BusinessUnitDAOImpl implements IBusinessUnitDAO {
 	}
 	
 	@Transactional(isolation=Isolation.DEFAULT)
-	public void addBusinessUnit(int pBuId) {
+	public void addBusinessUnit(Integer pBuId) {
 		if(oEntityManager != null){
 			BusinessUnit oBu = new BusinessUnit();
 			oBu.setBuId(pBuId);
@@ -72,7 +72,7 @@ public class BusinessUnitDAOImpl implements IBusinessUnitDAO {
 	}
 
 	@Transactional(isolation=Isolation.DEFAULT)
-	public void removeBusinessUnit(int pBuId) {
+	public void removeBusinessUnit(Integer pBuId) {
 		if(oEntityManager != null){
 			BusinessUnit oBu = getBusinessUnitById(pBuId);
 			if(oBu != null){

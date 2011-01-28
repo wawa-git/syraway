@@ -18,6 +18,7 @@
 		<spring.version>3.0.5.RELEASE</spring.version>
 		<hibernate.version>3.6.0.Final</hibernate.version>
 		<MySQLDriver.version>5.1.6</MySQLDriver.version>
+		<cglib.version>2.2</cglib.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -64,6 +65,12 @@
 			<version>${spring.version}</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+		    <groupId>cglib</groupId>
+		    <artifactId>cglib</artifactId>
+		    <version>${cglib.version}</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>

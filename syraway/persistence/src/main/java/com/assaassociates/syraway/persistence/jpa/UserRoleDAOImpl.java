@@ -99,5 +99,4 @@ public class UserRoleDAOImpl implements IUserRoleDAO {
 		logger.info("EntityManager is null ... Can't get UserRole of Employee");
 		return new ArrayList<UserRole>();
 	}
-	
 }

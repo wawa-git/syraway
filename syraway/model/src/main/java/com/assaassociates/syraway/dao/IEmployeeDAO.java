@@ -17,4 +17,5 @@ public interface IEmployeeDAO {
 	public void addEmployee(Employee pEmployee);
 	public void removeEmployee(Employee pEmployee);
 	public void removeEmployee(String pEmploStringId);
+	public Employee getEmployeeFromEmail(String pEmail);
 }

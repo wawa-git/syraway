@@ -24,6 +24,8 @@
 		<class>com.assaassociates.syraway.model.Role</class>
 		<class>com.assaassociates.syraway.model.Task</class>
 		<class>com.assaassociates.syraway.model.UserRole</class>
+		<class>com.assaassociates.syraway.model.Page</class>
+		<class>com.assaassociates.syraway.model.PageRole</class>
 		<exclude-unlisted-classes />
 
 		<properties>

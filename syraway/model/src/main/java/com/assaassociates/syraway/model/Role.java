@@ -27,8 +27,12 @@ public class Role implements Serializable {
 	private String name;
 
 	//bi-directional one-to-many association to UserRole
-	@OneToMany(mappedBy="swRole")
+	@OneToMany(mappedBy="swRole", targetEntity=com.assaassociates.syraway.model.UserRole.class)
 	private Set<UserRole> swUserRole;
+	
+	//bi-directional one-to-many association to UserPage
+	@OneToMany(mappedBy="swRole", targetEntity=com.assaassociates.syraway.model.PageRole.class)
+	private Set<PageRole> swPageRole;
 
     public Role() {
     }
@@ -68,5 +72,13 @@ public class Role implements Serializable {
 	@Override
 	public String toString(){
 		return String.valueOf(this.getRoleId());
+	}
+
+	public Set<PageRole> getSwPageRole() {
+		return swPageRole;
+	}
+
+	public void setSwPageRole(Set<PageRole> swPageRole) {
+		this.swPageRole = swPageRole;
 	}
 }

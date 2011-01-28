@@ -90,4 +90,14 @@ public class EmployeeDAOImpl implements IEmployeeDAO {
 		return new ArrayList<Employee>();
 	}
 
+	@Transactional(isolation=Isolation.READ_COMMITTED)
+	public Employee getEmployeeFromEmail(String pEmail) {
+		if(oEntityManager != null){
+			TypedQuery<Employee> oQuery = oEntityManager.createQuery("SELECT e FROM Employee e WHERE email = :pEmail",Employee.class);
+			oQuery.setParameter("pEmail", pEmail);
+			return oQuery.getSingleResult();
+		}
+		return null;
+	}
+
 }

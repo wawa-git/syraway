@@ -44,12 +44,16 @@ public class BusinessUnit implements Serializable {
 	private BusinessUnitPc swBuPc;
 
 	//bi-directional many-to-many association to Setid
-	@ManyToMany(mappedBy="swBus", fetch=FetchType.LAZY)
+	@ManyToMany(mappedBy="swBus",targetEntity=com.assaassociates.syraway.model.Setid.class, fetch=FetchType.LAZY)
 	private Set<Setid> swSetids;
 
 	//bi-directional many-to-one association to UserRole
-	@OneToMany(mappedBy="swBus")
+	@OneToMany(mappedBy="swBus", targetEntity=com.assaassociates.syraway.model.UserRole.class)
 	private Set<UserRole> swUserRole;
+	
+	//bi-directional many-to-one association to PageRole
+	@OneToMany(mappedBy="swBu", targetEntity=com.assaassociates.syraway.model.PageRole.class)
+	private Set<PageRole> swPageRole;
 
     public BusinessUnit() {
     }
@@ -105,6 +109,14 @@ public class BusinessUnit implements Serializable {
 	@Override
 	public String toString(){
 		return String.valueOf(this.getBuId());
+	}
+
+	public Set<PageRole> getSwPageRole() {
+		return swPageRole;
+	}
+
+	public void setSwPageRole(Set<PageRole> swPageRole) {
+		this.swPageRole = swPageRole;
 	}
 	
 	

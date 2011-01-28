@@ -2,6 +2,7 @@ package com.assaassociates.syraway.exts.mbeans;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -22,12 +23,18 @@ private static final long serialVersionUID = 6726658729223350876L;
 	private List<Role> roleList;
 	private String roleId;
 	
+	@PostConstruct
+	public void destroy(){
+		System.out.print(" =========================================================== POST CONSTRUCT ROLE");
+	}
+	
 	public RoleServiceImpl(){
 		super(); 
 		ApplicationContext appContext = FacesContextUtils.getWebApplicationContext(FacesContext.getCurrentInstance());
 		this.oRoleController = appContext.getBean("roleController", IRoleController.class);
 		this.value = new Role();
 		this.roleList = new ArrayList<Role>();
+		System.out.print(" =========================================================== CONSTRUCT ROLE");
 	}
 
 	public IRoleController getRoleController() {

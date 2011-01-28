@@ -3,7 +3,7 @@ package com.assaassociates.syraway.exts.mbeans;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import org.springframework.context.ApplicationContext;
@@ -19,7 +19,7 @@ import com.assaassociates.syraway.model.Role;
 import com.assaassociates.syraway.model.UserRole;
 
 @ManagedBean(name="userRole")
-@SessionScoped
+@RequestScoped
 public class UserRoleServiceImpl implements IUserRoleService {
 
 private static final long serialVersionUID = 6726658729223350876L;
@@ -152,7 +152,7 @@ private static final long serialVersionUID = 6726658729223350876L;
 				value.setSwRole(getRoleController().getRole(Integer.valueOf(getRoleId())));
 			}
 			if(getBuId() != null && !"".equals(getBuId().trim())){
-				value.setSwBus(getBusinessUnitController().getBusinessUnit(getRoleId()));
+				value.setSwBus(getBusinessUnitController().getBusinessUnit(getBuId()));
 			}
 			this.oUserRoleController.addUserRole(value);
 		}

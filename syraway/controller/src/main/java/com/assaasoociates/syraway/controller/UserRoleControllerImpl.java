@@ -50,9 +50,17 @@ public class UserRoleControllerImpl implements IUserRoleController {
 	}
 
 	public List<UserRole> getAllUserRoles() {
-		List<UserRole> result = new ArrayList<UserRole>();
+		List<UserRole> oResult = new ArrayList<UserRole>();
 		if(userRoleDAO != null)
-			result = userRoleDAO.getAllUserRoles();
-		return result;
+			oResult = userRoleDAO.getAllUserRoles();
+		return oResult;
+	}
+
+	public List<UserRole> getAllUserRolesOfEmplId(Integer pEmplId) {
+		List<UserRole> oResult = new ArrayList<UserRole>();
+		if(userRoleDAO != null){
+			oResult = userRoleDAO.getUserRoleOfEmployee(pEmplId);
+		}
+		return oResult;
 	}
 }

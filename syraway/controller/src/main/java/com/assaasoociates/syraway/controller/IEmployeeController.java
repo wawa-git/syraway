@@ -20,4 +20,6 @@ public interface IEmployeeController {
 	public List<Employee> getAllEmpls();
 	
 	public List<BusinessUnitEx> getAllBuEx();
+	
+	public Employee getEmployeeFromEmail(String pEmail);
 }

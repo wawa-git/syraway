@@ -10,5 +10,6 @@ public interface IUserRoleController {
 	public void updateUserRole(UserRole oUserRole);
 	public UserRole getUserRole(Integer pUserRoleId); 
 	public List<UserRole> getAllUserRoles();
+	public List<UserRole> getAllUserRolesOfEmplId(Integer pEmplId);
 	
 }

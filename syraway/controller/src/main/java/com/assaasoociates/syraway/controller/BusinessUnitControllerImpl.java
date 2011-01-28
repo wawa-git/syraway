@@ -63,6 +63,7 @@ public class BusinessUnitControllerImpl implements IBusinessUnitController {
 			try {
 				result = businessUnitDAO.getBusinessUnitById(Integer.valueOf(pBuId));
 			} catch (NumberFormatException e) {
+				System.err.println(e);
 			}
 		}
 		return result;

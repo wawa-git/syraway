@@ -107,6 +107,14 @@ public class EmployeeControllerImpl implements IEmployeeController {
 		}
 		return new ArrayList<BusinessUnitEx>();
 	}
+	
+	public Employee getEmployeeFromEmail(String pEmail) {
+		Employee oResult = null;
+		if(emplDAO != null){
+			oResult = emplDAO.getEmployeeFromEmail(pEmail);
+		}
+		return oResult;
+	}
 
 	public void addDepartment(Department pDept) {
 		if(deptDAO != null){
@@ -114,4 +122,5 @@ public class EmployeeControllerImpl implements IEmployeeController {
 		}
 		
 	}
+
 }
